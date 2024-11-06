@@ -116,19 +116,19 @@ if RunService:IsStudio() then
 end
 
 -- Interface Management
-local Rayfield = useStudio and script.Parent:FindFirstChild('HVHub') or game:GetObjects("rbxassetid://10804731440")[1]
+local Rayfield = useStudio and script.Parent:FindFirstChild('Rayfield') or game:GetObjects("rbxassetid://10804731440")[1]
 
-Rayfield.Enabled = false
+Rayfield.Enabled = true
 
 if gethui then
-	HVHub.Parent = gethui()
+	Rayfield.Parent = gethui()
 elseif syn and syn.protect_gui then 
-	syn.protect_gui(HVHub)
-	HVHub.Parent = CoreGui
+	syn.protect_gui(Rayfield)
+	Rayfield.Parent = CoreGui
 elseif not useStudio and CoreGui:FindFirstChild("RobloxGui") then
-	HVHub.Parent = CoreGui:FindFirstChild("RobloxGui")
+	Rayfield.Parent = CoreGui:FindFirstChild("RobloxGui")
 elseif not useStudio then
-	HVHub.Parent = CoreGui
+	Rayfield.Parent = CoreGui
 end
 
 if gethui then
