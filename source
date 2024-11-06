@@ -10,7 +10,7 @@ iRay  | Programming
 
 
 
-local Release = "1.02"
+local Release = "1.0"
 local RayfieldFolder = "Rayfield"
 local ConfigurationFolder = RayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
@@ -136,14 +136,14 @@ end
 if gethui then
 	for _, Interface in ipairs(gethui():GetChildren()) do
 		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
-			Interface.Enabled = false
+			Interface.Enabled = true
 			Interface.Name = "Rayfield-Old"
 		end
 	end
 elseif not useStudio then
 	for _, Interface in ipairs(CoreGui:GetChildren()) do
 		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
-			Interface.Enabled = false
+			Interface.Enabled = true
 			Interface.Name = "Rayfield-Old"
 		end
 	end
