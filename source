@@ -3,8 +3,6 @@
 HV Hub
 by Darkder
 
-shlex | Designing + Programming
-iRay  | Programming
 
 ]]
 
@@ -118,9 +116,9 @@ if RunService:IsStudio() then
 end
 
 -- Interface Management
-local HVHub = useStudio and script.Parent:FindFirstChild('HVHub') or game:GetObjects("rbxassetid://10804731440")[1]
+local Rayfield = useStudio and script.Parent:FindFirstChild('HVHub') or game:GetObjects("rbxassetid://10804731440")[1]
 
-HVHub.Enabled = true
+Rayfield.Enabled = true
 
 if gethui then
 	HVHub.Parent = gethui()
@@ -135,14 +133,14 @@ end
 
 if gethui then
 	for _, Interface in ipairs(gethui():GetChildren()) do
-		if Interface.Name == HVHub.Name and Interface ~= HVHub then
+		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
 			Interface.Enabled = true
 			Interface.Name = "kick"
 		end
 	end
 elseif not useStudio then
 	for _, Interface in ipairs(CoreGui:GetChildren()) do
-		if Interface.Name == HVHub.Name and Interface ~= HVHub then
+		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
 			Interface.Enabled = true
 			Interface.Name = "kick"
 		end
@@ -184,7 +182,7 @@ local Hidden = false
 local Debounce = false
 local Notifications = HVHub.Notifications
 
-local SelectedTheme = HVHubLibrary.Theme.Default
+local SelectedTheme = RayfieldLibrary.Theme.Default
 
 function ChangeTheme(ThemeName)
 	SelectedTheme = HVHubLibrary.Theme[ThemeName]
