@@ -8,9 +8,9 @@ by Darkder
 
 
 
-local Release = "1.02"
-local HVHubFolder = "HV HUB"
-local ConfigurationFolder = HVHubFolder.."/Configurations"
+local Release = "1.0"
+local RayFieldFolder = "HV HUB"
+local ConfigurationFolder = RayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
 
 
@@ -58,7 +58,7 @@ local RayfieldLibrary = {
 			PlaceholderColor = Color3.fromRGB(178, 178, 178)
 		},
 		Light = {
-			TextFont = "Gotham", -- Default will use the various font faces used across HVHub
+			TextFont = "Gotham", -- Default will use the various font faces used across Rayfield
 			TextColor = Color3.fromRGB(50, 50, 50), -- i need to make all text 240, 240, 240 and base gray on transparency not color to do this
 
 			Background = Color3.fromRGB(255, 255, 255),
@@ -118,7 +118,7 @@ end
 -- Interface Management
 local Rayfield = useStudio and script.Parent:FindFirstChild('HVHub') or game:GetObjects("rbxassetid://10804731440")[1]
 
-Rayfield.Enabled = true
+Rayfield.Enabled = false
 
 if gethui then
 	HVHub.Parent = gethui()
@@ -185,8 +185,8 @@ local Notifications = HVHub.Notifications
 local SelectedTheme = RayfieldLibrary.Theme.Default
 
 function ChangeTheme(ThemeName)
-	SelectedTheme = HVHubLibrary.Theme[ThemeName]
-	for _, obj in ipairs(HVHub:GetDescendants()) do
+	SelectedTheme = RayfieldLibrary.Theme[ThemeName]
+	for _, obj in ipairs(Rayfield:GetDescendants()) do
 		if obj.ClassName == "idk" or obj.ClassName == "idk" or obj.ClassName == "idk" then
 			if SelectedTheme.TextFont ~= "Default" then 
 				obj.TextColor3 = SelectedTheme.TextColor
