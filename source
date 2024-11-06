@@ -1,15 +1,17 @@
 --[[
 
 HV Hub
-by Darkder
+by HV
 
+shlex | Designing + Programming
+iRay  | Programming
 
 ]]
 
 
 
-local Release = "1.0"
-local RayFieldFolder = "HV HUB"
+local Release = "1.02"
+local RayfieldFolder = "Rayfield"
 local ConfigurationFolder = RayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
 
@@ -118,7 +120,7 @@ end
 -- Interface Management
 local Rayfield = useStudio and script.Parent:FindFirstChild('Rayfield') or game:GetObjects("rbxassetid://10804731440")[1]
 
-Rayfield.Enabled = true
+Rayfield.Enabled = false
 
 if gethui then
 	Rayfield.Parent = gethui()
@@ -134,15 +136,15 @@ end
 if gethui then
 	for _, Interface in ipairs(gethui():GetChildren()) do
 		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
-			Interface.Enabled = true
-			Interface.Name = "kick"
+			Interface.Enabled = false
+			Interface.Name = "Rayfield-Old"
 		end
 	end
 elseif not useStudio then
 	for _, Interface in ipairs(CoreGui:GetChildren()) do
 		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
-			Interface.Enabled = true
-			Interface.Name = "kick"
+			Interface.Enabled = false
+			Interface.Name = "Rayfield-Old"
 		end
 	end
 end
@@ -168,7 +170,7 @@ local LoadingFrame = Main.LoadingFrame
 local TabList = Main.TabList
 
 Rayfield.DisplayOrder = 100
-LoadingFrame.Version.Text = 1.0
+LoadingFrame.Version.Text = Release
 
 
 
@@ -180,14 +182,14 @@ local CEnabled = false
 local Minimised = false
 local Hidden = false
 local Debounce = false
-local Notifications = HVHub.Notifications
+local Notifications = Rayfield.Notifications
 
 local SelectedTheme = RayfieldLibrary.Theme.Default
 
 function ChangeTheme(ThemeName)
 	SelectedTheme = RayfieldLibrary.Theme[ThemeName]
 	for _, obj in ipairs(Rayfield:GetDescendants()) do
-		if obj.ClassName == "idk" or obj.ClassName == "idk" or obj.ClassName == "idk" then
+		if obj.ClassName == "TextLabel" or obj.ClassName == "TextBox" or obj.ClassName == "TextButton" then
 			if SelectedTheme.TextFont ~= "Default" then 
 				obj.TextColor3 = SelectedTheme.TextColor
 				obj.Font = SelectedTheme.TextFont
